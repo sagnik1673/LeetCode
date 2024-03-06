@@ -15,12 +15,13 @@
  */
 class Solution {
     public boolean hasCycle(ListNode head) {
-        ListNode i=head, j=head;
-        while(i!=null && i.next!=null)
+        // Floyd's Tortoise and Hare Algorithm
+        ListNode fast=head, slow=head;
+        while(fast!=null && fast.next!=null)
         {
-            i=i.next.next;
-            j=j.next;
-            if(i==j)
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow)
                 return true;
         }
         return false;
